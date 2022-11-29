@@ -3,3 +3,9 @@
 select product.PRO_ID, product.PRO_NAME from `ORDER` , supplier_pricing , product 
 where `order`.PRICING_ID = supplier_pricing.PRICING_ID 
 and supplier_pricing.PRO_ID = product.PRO_ID AND `order`.ORD_DATE > "2021-10-05"; 
+
+
+-- 8)	Display customer name and gender whose names start or end with character 'A'.
+
+SELECT customer.CUS_NAME, customer.CUS_GENDER FROM customer 
+where customer.CUS_NAME like 'A%' or customer.CUS_NAME like '%A' ;
