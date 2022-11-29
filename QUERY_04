@@ -1,7 +1,0 @@
---4)	Display all the orders along with product name ordered by a customer having Customer_Id=2
-
-SELECT `ORDER`.ORD_ID, `order`.ORD_AMOUNT, `ORDER`.ORD_DATE, `ORDER`.CUS_ID , product.PRO_NAME 
-FROM `ORDER` , supplier_pricing, product 
-WHERE
- `ORDER`.PRICING_ID = SUPPLIER_PRICING.PRICING_ID and
- supplier_pricing.PRO_ID =  product.PRO_ID AND `order`.CUS_ID = 2;
