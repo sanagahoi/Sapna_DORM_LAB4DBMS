@@ -1,0 +1,10 @@
+-- 6)Find the least expensive product from each category and print the table with category id, 
+-- name, product name and price of the product
+
+select category.CAT_ID, category.CAT_NAME, CP.PRO_NAME ,min(CP.MIN_PRICE) AS Price_Of_The_Product  FROM category 
+inner join
+(select product.PRO_NAME, product.CAT_ID, SP.* FROM product
+inner join
+(select PRO_ID, min(SUPP_PRICE) as MIN_PRICE FROM supplier_pricing  group by PRO_ID) as SP
+where SP.PRO_ID = product.PRO_ID) as CP
+WHERE CP.CAT_ID = category.CAT_ID group by CP.CAT_ID; 
