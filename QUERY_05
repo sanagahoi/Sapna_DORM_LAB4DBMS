@@ -1,5 +1,0 @@
--- 5)	Display the Supplier details who can supply more than one product.
-
-SELECT supplier.* FROM supplier where supplier.SUPP_ID in
-(select supplier_pricing.SUPP_ID from supplier_pricing group by supp_id having 
-	count(supp_id)>1) group by supplier.SUPP_ID;
